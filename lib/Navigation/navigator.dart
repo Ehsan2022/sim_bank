@@ -25,11 +25,11 @@ class _NavigationState extends State<Navigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 133, 179, 232),
+      backgroundColor: const Color.fromARGB(255, 8, 63, 110),
       body: body[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.transparent,
-        unselectedItemColor: const Color.fromARGB(255, 8, 63, 110),
+        unselectedItemColor: Colors.grey.shade300,
         selectedItemColor: Colors.black,
         selectedFontSize: 16,
         selectedIconTheme: const IconThemeData(size: 40),
