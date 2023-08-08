@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sim_bank/Navigation/navigator.dart';
-import 'package:sim_bank/SimCards/awcc.dart';
-import 'package:sim_bank/SimCards/etisalat.dart';
-import 'package:sim_bank/SimCards/mtn.dart';
-import 'package:sim_bank/SimCards/roshan.dart';
-import 'package:sim_bank/SimCards/salam.dart';
+import '../SimCards/AWCC/awcc.dart';
+import '../SimCards/Etisalat/etisalat.dart';
+import '../SimCards/MTN/mtn.dart';
+import '../SimCards/Roshan/roshan.dart';
+import '../SimCards/Salam/salam.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -50,48 +49,55 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
-              SimContainer(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Roshan()));
-                },
-                image: 'images/Roshan.jpeg',
-                text: 'Roshan',
+              Expanded(
+                child: ListView(
+                  children: [
+                    SimContainer(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => const Roshan()));
+                      },
+                      image: 'images/Roshan.jpeg',
+                      text: 'Roshan',
+                    ),
+                    SimContainer(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Etisalat()));
+                      },
+                      image: 'images/ets.png',
+                      text: 'Etisalat',
+                    ),
+                    SimContainer(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => const MTN()));
+                      },
+                      image: 'images/mtn.png',
+                      text: 'MTN',
+                    ),
+                    SimContainer(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => const Awcc()));
+                      },
+                      image: 'images/afgBisim.png',
+                      text: 'AWCC',
+                    ),
+                    SimContainer(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => const Salam()));
+                      },
+                      image: 'images/salam.png',
+                      text: 'Salam',
+                    ),
+                  ],
+                ),
               ),
-              SimContainer(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Etisalat()));
-                },
-                image: 'images/ets.png',
-                text: 'Etisalat',
-              ),
-              SimContainer(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const MTN()));
-                },
-                image: 'images/mtn.png',
-                text: 'MTN',
-              ),
-              SimContainer(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Awcc()));
-                },
-                image: 'images/afgBisim.png',
-                text: 'AWCC',
-              ),
-              SimContainer(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Salam()));
-                },
-                image: 'images/salam.png',
-                text: 'Salam',
-              ),
+
             ],
           ),
         ),

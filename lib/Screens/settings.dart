@@ -8,7 +8,7 @@ class Settings extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 8, 63, 110),
       body: Padding(
-        padding: const EdgeInsets.only(top: 20),
+        padding: const EdgeInsets.only(top: 25),
         child: Container(
           height: 750,
           decoration: BoxDecoration(
