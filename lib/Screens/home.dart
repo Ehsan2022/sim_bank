@@ -54,8 +54,10 @@ class _HomeState extends State<Home> {
                   children: [
                     SimContainer(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => const Roshan()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Roshan()));
                       },
                       image: 'images/Roshan.jpeg',
                       text: 'Roshan',
@@ -72,24 +74,30 @@ class _HomeState extends State<Home> {
                     ),
                     SimContainer(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => const MTN()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MTN()));
                       },
                       image: 'images/mtn.png',
                       text: 'MTN',
                     ),
                     SimContainer(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => const Awcc()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Awcc()));
                       },
                       image: 'images/afgBisim.png',
                       text: 'AWCC',
                     ),
                     SimContainer(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => const Salam()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Salam()));
                       },
                       image: 'images/salam.png',
                       text: 'Salam',
@@ -97,7 +105,6 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ),
-
             ],
           ),
         ),
