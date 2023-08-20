@@ -29,13 +29,13 @@ class _AwccState extends State<Awcc> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
       body: Padding(
-        padding: const EdgeInsets.only(top: 25,bottom: 25),
+        padding: const EdgeInsets.only(top: 25, bottom: 25),
         child: Container(
           height: 800,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: Colors.grey.shade300,
-              borderRadius: BorderRadius.circular(20),
+            color: Colors.grey.shade300,
+            borderRadius: BorderRadius.circular(20),
             boxShadow: const [
               BoxShadow(
                 color: Colors.black38,
@@ -47,7 +47,7 @@ class _AwccState extends State<Awcc> {
           child: Column(
             children: [
               const Padding(
-                padding: EdgeInsets.only(top: 28.0,bottom: 28),
+                padding: EdgeInsets.only(top: 28.0, bottom: 28),
                 child: Center(
                   child: Text(
                     'AWCC',
@@ -74,6 +74,13 @@ class _AwccState extends State<Awcc> {
                   onPressed: () {},
                   icon: Icons.email_outlined,
                   enterIcon: CupertinoIcons.right_chevron),
+              Packages(
+                  text: 'Services',
+                  onPressed: () {
+
+                  },
+                  icon: Icons.headset_mic_outlined,
+                  enterIcon: CupertinoIcons.right_chevron),
             ],
           ),
         ),
@@ -84,12 +91,12 @@ class _AwccState extends State<Awcc> {
 
 
 class Packages extends StatelessWidget {
-  const Packages(
-      {super.key,
-        required this.text,
-        required this.onPressed,
-        required this.icon,
-        required this.enterIcon});
+  const Packages({super.key,
+    required this.text,
+    required this.onPressed,
+    required this.icon,
+    required this.enterIcon});
+
   final IconData icon;
   final IconData enterIcon;
   final String text;
@@ -105,7 +112,7 @@ class Packages extends StatelessWidget {
           height: 70,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(10),
+            color: Colors.white, borderRadius: BorderRadius.circular(10),
             boxShadow: const [
               BoxShadow(
                 color: Colors.grey,
@@ -118,7 +125,8 @@ class Packages extends StatelessWidget {
             children: [
               Expanded(
                 flex: 1,
-                child: Icon(icon,size: 30,color: const Color.fromARGB(255, 8, 63, 110),),
+                child: Icon(icon, size: 30,
+                  color: const Color.fromARGB(255, 8, 63, 110),),
               ),
               Expanded(
                 flex: 2,
@@ -134,7 +142,8 @@ class Packages extends StatelessWidget {
               ),
               Expanded(
                 flex: 1,
-                child: Icon(enterIcon,color: const Color.fromARGB(255, 8, 63, 110),),
+                child: Icon(
+                  enterIcon, color: const Color.fromARGB(255, 8, 63, 110),),
               ),
             ],
           ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sim_bank/SimCards/Roshan/call.dart';
 import 'package:sim_bank/SimCards/Roshan/internet.dart';
 import 'package:sim_bank/SimCards/Roshan/message.dart';
+import 'package:sim_bank/SimCards/Roshan/service.dart';
 
 class Roshan extends StatefulWidget {
   const Roshan({Key? key}) : super(key: key);
@@ -64,10 +65,8 @@ class _RoshanState extends State<Roshan> {
               Packages(
                   text: 'Internet',
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Internet()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Internet()));
                   },
                   icon: Icons.wifi,
                   enterIcon: CupertinoIcons.right_chevron),
@@ -89,6 +88,16 @@ class _RoshanState extends State<Roshan> {
                   },
                   icon: Icons.email_outlined,
                   enterIcon: CupertinoIcons.right_chevron),
+              Packages(
+                  text: 'Services',
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Service()));
+                  },
+                  icon: Icons.headset_mic_outlined,
+                  enterIcon: CupertinoIcons.right_chevron),
             ],
           ),
         ),
@@ -104,6 +113,7 @@ class Packages extends StatelessWidget {
       required this.onPressed,
       required this.icon,
       required this.enterIcon});
+
   final IconData icon;
   final IconData enterIcon;
   final String text;
@@ -115,7 +125,7 @@ class Packages extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
       child: GestureDetector(
         onTap: onPressed,
-        child: Container(
+        child: AnimatedContainer(
           height: 70,
           width: double.infinity,
           decoration: BoxDecoration(
@@ -129,6 +139,7 @@ class Packages extends StatelessWidget {
               )
             ],
           ),
+          duration: const Duration(milliseconds: 500),
           child: Row(
             children: [
               Expanded(

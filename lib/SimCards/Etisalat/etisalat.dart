@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sim_bank/SimCards/Etisalat/call.dart';
 import 'package:sim_bank/SimCards/Etisalat/internet.dart';
 import 'package:sim_bank/SimCards/Etisalat/message.dart';
+import 'package:sim_bank/SimCards/Etisalat/service.dart';
 
 class Etisalat extends StatefulWidget {
   const Etisalat({Key? key}) : super(key: key);
@@ -88,6 +89,16 @@ class _EtisalatState extends State<Etisalat> {
                             builder: (context) => const Message()));
                   },
                   icon: Icons.email_outlined,
+                  enterIcon: CupertinoIcons.right_chevron),
+              Packages(
+                  text: 'Services',
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Service()));
+                  },
+                  icon: Icons.headset_mic_outlined,
                   enterIcon: CupertinoIcons.right_chevron),
             ],
           ),

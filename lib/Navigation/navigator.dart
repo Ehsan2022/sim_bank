@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 import '../Screens/home.dart';
 import '../Screens/profile.dart';
 import '../Screens/settings.dart';
@@ -17,7 +16,7 @@ class _NavigationState extends State<Navigation> {
   int currentIndex = 1;
 
   List<Widget> body = [
-    const Settings(),
+    Settings(),
     const Home(),
     const Profile(),
   ];
@@ -30,7 +29,7 @@ class _NavigationState extends State<Navigation> {
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.transparent,
         unselectedItemColor: Colors.grey.shade300,
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.white,
         selectedFontSize: 16,
         selectedIconTheme: const IconThemeData(size: 40),
         elevation: 0,

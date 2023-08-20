@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sim_bank/Navigation/navigator.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
@@ -6,14 +8,14 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 8, 63, 110),
+      backgroundColor: Colors.transparent,
       body: Padding(
         padding: const EdgeInsets.only(top: 25),
         child: Container(
           height: 800,
           decoration: BoxDecoration(
-              color: Colors.grey.shade300,
-              borderRadius: BorderRadius.circular(20),
+            color: Colors.grey.shade300,
+            borderRadius: BorderRadius.circular(20),
             boxShadow: const [
               BoxShadow(
                 color: Colors.black38,
@@ -22,10 +24,10 @@ class Profile extends StatelessWidget {
               )
             ],
           ),
-          child: Column(
+          child: const Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 28.0,bottom: 28),
+              Padding(
+                padding: EdgeInsets.only(top: 28.0, bottom: 8),
                 child: Center(
                   child: Text(
                     'Profile',
@@ -37,24 +39,59 @@ class Profile extends StatelessWidget {
                   ),
                 ),
               ),
-              Expanded(
-                child: ListView.separated(
-                  itemBuilder: (context, index) => ListTile(
-                    onTap: () {
-                      // Navigator.push(context, MaterialPageRoute(builder: (context) => ,),);
-                    },
-                    contentPadding: const EdgeInsets.all(2),
-                    title: const Text('data'),
-                    trailing: const Icon(Icons.panorama_horizontal_sharp),
+              Padding(
+                padding: EdgeInsets.only(bottom: 12.0),
+                child: Center(
+                  child: CircleAvatar(
+                    radius: 35,
+                    backgroundColor: Color.fromARGB(255, 8, 63, 110),
+                    child: CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Colors.white,
+                      child: CircleAvatar(
+                        radius: 25,
+                        backgroundColor: Color.fromARGB(255, 8, 63, 110),
+                        child: Icon(
+                          CupertinoIcons.profile_circled,
+                          color: Colors.white,
+                          size: 40,
+                        ),
+                      ),
+                    ),
                   ),
-                  separatorBuilder: (context, index) => const Divider(
-                      color: Color.fromARGB(255, 8, 63, 110),
-                      indent: 5,
-                      endIndent: 5,
-                      thickness: 2,),
-                  itemCount: 5,
                 ),
               ),
+              Divider(
+                color: Colors.grey,
+                thickness: 2,
+                indent: 150,
+                endIndent: 150,
+              ),
+              Padding(
+                padding: EdgeInsets.all(28.0),
+                child: Center(
+                  child: ListTile(
+                    title: Center(
+                      child: Text(
+                        "Mohammad Ehsan Nicksarisht",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Color.fromARGB(255, 8, 63, 110),
+                        ),
+                      ),
+                    ),
+                    subtitle: Center(
+                      child: Text(
+                        "0790234314",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Color.fromARGB(255, 8, 63, 110),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),

@@ -61,7 +61,7 @@ class _InternetState extends State<Internet>
               ),
               unselectedLabelColor: const Color.fromARGB(255, 8, 63, 110),
               labelStyle:
-                  const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               physics: const ScrollPhysics(),
               tabs: const [
                 Tab(
@@ -122,7 +122,7 @@ class Daily extends StatelessWidget {
                     },
                     deactive: () {
                       buildAlert(
-                              context, "OK", "Do you want to deactive?", "US5")
+                          context, "OK", "Do you want to deactive?", "US5")
                           .show();
                     },
                   ),
@@ -134,12 +134,12 @@ class Daily extends StatelessWidget {
                     deactivation: 'UD200 to 555',
                     active: () {
                       buildAlert(
-                              context, "OK", "Do you want to active?", "D200")
+                          context, "OK", "Do you want to active?", "D200")
                           .show();
                     },
                     deactive: () {
                       buildAlert(context, "OK", "Do you want to deactive?",
-                              "UD200")
+                          "UD200")
                           .show();
                     },
                   ),
@@ -155,7 +155,7 @@ class Daily extends StatelessWidget {
                     },
                     deactive: () {
                       buildAlert(
-                              context, "OK", "Do you want to deactive?", "UD1")
+                          context, "OK", "Do you want to deactive?", "UD1")
                           .show();
                     },
                   ),
@@ -171,7 +171,7 @@ class Daily extends StatelessWidget {
                     },
                     deactive: () {
                       buildAlert(
-                              context, "OK", "Do you want to deactive?", "U3GB")
+                          context, "OK", "Do you want to deactive?", "U3GB")
                           .show();
                     },
                   ),

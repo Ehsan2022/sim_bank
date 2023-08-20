@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import '../SimCards/AWCC/awcc.dart';
 import '../SimCards/Etisalat/etisalat.dart';
 import '../SimCards/MTN/mtn.dart';
@@ -17,7 +18,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 8, 63, 110),
+      backgroundColor: Colors.transparent,
       body: Padding(
         padding: const EdgeInsets.only(top: 25),
         child: Container(
@@ -119,6 +120,7 @@ class SimContainer extends StatelessWidget {
       required this.image,
       required this.text,
       required this.onPressed});
+
   final String image;
   final String text;
   final Function() onPressed;
