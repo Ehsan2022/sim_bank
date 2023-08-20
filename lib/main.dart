@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 import 'Navigation/navigator.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-main() async {
-  runApp(
-    const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
-    ),
-  );
-}
+main() => runApp(
+      const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
+      ),
+    );
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
