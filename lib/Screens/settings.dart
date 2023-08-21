@@ -13,7 +13,7 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 8, 63, 110),
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.only(top: 25),
         child: Container(
