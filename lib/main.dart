@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sim_bank/Screens/links.dart';
 import 'Navigation/navigator.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 main() => runApp(
       const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SplashScreen(),
+        home: Links(),
       ),
     );
 

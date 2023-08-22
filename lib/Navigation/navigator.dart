@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../Screens/home.dart';
-import '../Screens/profile.dart';
+import '../Screens/links.dart';
 import '../Screens/settings.dart';
 
 class Navigation extends StatefulWidget {
@@ -18,7 +18,7 @@ class _NavigationState extends State<Navigation> {
   List<Widget> body = [
     Settings(),
     const Home(),
-    const Profile(),
+    const Links(),
   ];
 
   @override
@@ -28,7 +28,7 @@ class _NavigationState extends State<Navigation> {
       body: body[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.transparent,
-        unselectedItemColor: Colors.grey.shade300,
+        unselectedItemColor: Colors.grey.shade400,
         selectedItemColor: Colors.white,
         selectedFontSize: 16,
         selectedIconTheme: const IconThemeData(size: 40),
@@ -51,7 +51,7 @@ class _NavigationState extends State<Navigation> {
           ),
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.profile_circled),
-            label: 'Profile',
+            label: 'Links',
           ),
         ],
       ),
