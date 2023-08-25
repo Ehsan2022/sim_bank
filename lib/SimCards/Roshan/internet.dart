@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -105,22 +104,6 @@ class Daily extends StatefulWidget {
 }
 
 class _DailyState extends State<Daily> {
-  var collection = FirebaseFirestore.instance.collection("packages");
-  late List items;
-  bool isLoaded = false;
-
-  Future getPackageList() async {
-    List tempList = [];
-    var data = await collection.get();
-    data.docs.forEach((element) {
-      tempList.add(element.data());
-    });
-    setState(() {
-      items = tempList;
-      isLoaded = true;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -130,96 +113,72 @@ class _DailyState extends State<Daily> {
         child: Column(
           children: [
             Expanded(
-              child: isLoaded
-                  ? ListView.builder(
-                      itemCount: items.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return PackageCard(
-                          price: 5,
-                          duration: 'njjn',
-                          activation: 'jj',
-                          deactivation: 'kk',
-                          bundle: 'll',
-                          active: () {
-                            buildAlert(context, "OK", "Do you want to active?",
-                                    "S5")
-                                .show();
-                          },
-                          deactive: () {
-                            buildAlert(context, "OK",
-                                    "Do you want to deactive?", "US5")
-                                .show();
-                          },
-                        );
-                      },
-                      // PackageCard(
-                      //   bundle: '50 MB',
-                      //   price: 5,
-                      //   duration: '1 day(s)',
-                      //   activation: "S5 to 555",
-                      //   deactivation: 'US5 to 555',
-                      //   active: () {
-                      //     buildAlert(context, "OK", "Do you want to active?", "S5")
-                      //         .show();
-                      //   },
-                      //   deactive: () {
-                      //     buildAlert(
-                      //             context, "OK", "Do you want to deactive?", "US5")
-                      //         .show();
-                      //   },
-                      // ),
-                      // PackageCard(
-                      //   bundle: '200 MB',
-                      //   price: 30,
-                      //   duration: '1 day(s)',
-                      //   activation: "D200 to 555",
-                      //   deactivation: 'UD200 to 555',
-                      //   active: () {
-                      //     buildAlert(
-                      //             context, "OK", "Do you want to active?", "D200")
-                      //         .show();
-                      //   },
-                      //   deactive: () {
-                      //     buildAlert(context, "OK", "Do you want to deactive?",
-                      //             "UD200")
-                      //         .show();
-                      //   },
-                      // ),
-                      // PackageCard(
-                      //   bundle: '1 GB',
-                      //   price: 50,
-                      //   duration: '1 day(s)',
-                      //   activation: "D1 to 555",
-                      //   deactivation: 'UD1 to 555',
-                      //   active: () {
-                      //     buildAlert(context, "OK", "Do you want to active?", "D1")
-                      //         .show();
-                      //   },
-                      //   deactive: () {
-                      //     buildAlert(
-                      //             context, "OK", "Do you want to deactive?", "UD1")
-                      //         .show();
-                      //   },
-                      // ),
-                      // PackageCard(
-                      //   bundle: '3 GB',
-                      //   price: 90,
-                      //   duration: '1 day(s)',
-                      //   activation: "3GB to 555",
-                      //   deactivation: 'U3GB to 555',
-                      //   active: () {
-                      //     buildAlert(context, "OK", "Do you want to active?", "3GB")
-                      //         .show();
-                      //   },
-                      //   deactive: () {
-                      //     buildAlert(
-                      //             context, "OK", "Do you want to deactive?", "U3GB")
-                      //         .show();
-                      //   },
-                      // ),
-                    )
-                  : Text("no data"),
-            ),
+                child: ListView(
+              children: [
+                PackageCard(
+                  bundle: '50 MB',
+                  price: 5,
+                  duration: '1 day(s)',
+                  activation: "S5 to 555",
+                  deactivation: 'US5 to 555',
+                  active: () {
+                    buildAlert(context, "OK", "Do you want to active?", "S5")
+                        .show();
+                  },
+                  deactive: () {
+                    buildAlert(context, "OK", "Do you want to deactive?", "US5")
+                        .show();
+                  },
+                ),
+                PackageCard(
+                  bundle: '200 MB',
+                  price: 30,
+                  duration: '1 day(s)',
+                  activation: "D200 to 555",
+                  deactivation: 'UD200 to 555',
+                  active: () {
+                    buildAlert(context, "OK", "Do you want to active?", "D200")
+                        .show();
+                  },
+                  deactive: () {
+                    buildAlert(
+                            context, "OK", "Do you want to deactive?", "UD200")
+                        .show();
+                  },
+                ),
+                PackageCard(
+                  bundle: '1 GB',
+                  price: 50,
+                  duration: '1 day(s)',
+                  activation: "D1 to 555",
+                  deactivation: 'UD1 to 555',
+                  active: () {
+                    buildAlert(context, "OK", "Do you want to active?", "D1")
+                        .show();
+                  },
+                  deactive: () {
+                    buildAlert(context, "OK", "Do you want to deactive?", "UD1")
+                        .show();
+                  },
+                ),
+                PackageCard(
+                  bundle: '3 GB',
+                  price: 90,
+                  duration: '1 day(s)',
+                  activation: "3GB to 555",
+                  deactivation: 'U3GB to 555',
+                  active: () {
+                    buildAlert(context, "OK", "Do you want to active?", "3GB")
+                        .show();
+                  },
+                  deactive: () {
+                    buildAlert(
+                            context, "OK", "Do you want to deactive?", "U3GB")
+                        .show();
+                  },
+                ),
+              ],
+            )),
           ],
         ),
       ),

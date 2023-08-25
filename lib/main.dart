@@ -1,15 +1,21 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sim_bank/Screens/links.dart';
 import 'Navigation/navigator.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-main() => runApp(
-      const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Links(),
-      ),
-    );
+import 'firebase_options.dart';
+
+main() {
+  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  runApp(
+    const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Navigation(),
+    ),
+  );
+}
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
