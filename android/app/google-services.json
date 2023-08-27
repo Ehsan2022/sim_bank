@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "770179814695",
+    "project_id": "simbank-877a1",
+    "storage_bucket": "simbank-877a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770179814695:android:69b3164798a6715a25c502",
+        "android_client_info": {
+          "package_name": "com.example.sim_bank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770179814695-9esekaghkv5jtavgg6dv1l3j4bnbb1ed.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDypkG3YEwBltvipb-hUApXY2g7WfZfRJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "770179814695-9esekaghkv5jtavgg6dv1l3j4bnbb1ed.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "770179814695-aeouck0mmugm3feifaah51a0p2qmmllr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.simBank"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
