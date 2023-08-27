@@ -20,6 +20,7 @@ dependencies:
   flutter_spinkit: ^5.2.0
   cloud_firestore: ^4.8.5
   firebase_core: ^2.15.1
+  easy_localization: ^3.0.2
 
 
 
@@ -36,7 +37,8 @@ flutter:
   uses-material-design: true
 
   assets:
-    - images/
+    - assets/translations/
+    - assets/
 
   # fonts:
   #   - family: Schyler

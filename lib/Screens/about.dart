@@ -49,7 +49,7 @@ class _AboutState extends State<About> {
                 padding: EdgeInsets.only(top: 10.0, bottom: 38),
                 child: Center(
                   child: Text(
-                    'About',
+                    "About",
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
@@ -57,6 +57,19 @@ class _AboutState extends State<About> {
                     ),
                   ),
                 ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(30.0),
+                child: Text(
+                  "SimBank is an app for accessing different packages of all sim card available in Afghanistan.",
+                  style: TextStyle(fontSize: 22),
+                ),
+              ),
+              Divider(
+                endIndent: 20,
+                indent: 20,
+                thickness: 1,
+                color: Colors.grey,
               ),
               ListTile(
                 leading: Text(
@@ -68,6 +81,12 @@ class _AboutState extends State<About> {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
+              Divider(
+                endIndent: 20,
+                indent: 20,
+                thickness: 1,
+                color: Colors.grey,
+              ),
               ListTile(
                 leading: Text(
                   'Version:',
@@ -78,13 +97,12 @@ class _AboutState extends State<About> {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.all(30.0),
-                child: Text(
-                  "SimBank is an app for accessing different packages of all sim card available in Afghanistan.",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              )
+              Divider(
+                endIndent: 20,
+                indent: 20,
+                thickness: 1,
+                color: Colors.grey,
+              ),
             ],
           ),
         ),

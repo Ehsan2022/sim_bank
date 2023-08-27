@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sim_bank/SimCards/Roshan/call.dart';
 import 'package:sim_bank/SimCards/Roshan/internet.dart';
 import 'package:sim_bank/SimCards/Roshan/message.dart';
 import 'package:sim_bank/SimCards/Roshan/service.dart';
+import 'package:sim_bank/translations/locale_keys.dart';
 
 class Roshan extends StatefulWidget {
   const Roshan({Key? key}) : super(key: key);
@@ -49,12 +51,12 @@ class _RoshanState extends State<Roshan> {
           ),
           child: Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 10.0, bottom: 38),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0, bottom: 38),
                 child: Center(
                   child: Text(
-                    'Roshan',
-                    style: TextStyle(
+                    LocaleKeys.roshan.tr(),
+                    style: const TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 8, 63, 110),
@@ -63,15 +65,17 @@ class _RoshanState extends State<Roshan> {
                 ),
               ),
               Packages(
-                  text: 'Internet',
+                  text: LocaleKeys.internet.tr(),
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Internet()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Internet()));
                   },
                   icon: Icons.wifi,
                   enterIcon: CupertinoIcons.right_chevron),
               Packages(
-                  text: 'Call',
+                  text: LocaleKeys.call.tr(),
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const Call()));
@@ -79,7 +83,7 @@ class _RoshanState extends State<Roshan> {
                   icon: Icons.wifi_calling_3_outlined,
                   enterIcon: CupertinoIcons.right_chevron),
               Packages(
-                  text: 'Message',
+                  text: LocaleKeys.message.tr(),
                   onPressed: () {
                     Navigator.push(
                         context,
@@ -89,7 +93,7 @@ class _RoshanState extends State<Roshan> {
                   icon: Icons.email_outlined,
                   enterIcon: CupertinoIcons.right_chevron),
               Packages(
-                  text: 'Services',
+                  text: LocaleKeys.services.tr(),
                   onPressed: () {
                     Navigator.push(
                         context,

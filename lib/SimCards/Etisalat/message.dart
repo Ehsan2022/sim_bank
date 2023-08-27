@@ -1,7 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+
+import '../../translations/locale_keys.dart';
 
 class Message extends StatefulWidget {
   const Message({Key? key}) : super(key: key);
@@ -44,9 +47,9 @@ class _MessageState extends State<Message> with SingleTickerProviderStateMixin {
             ),
             backgroundColor: Colors.grey.shade300,
             centerTitle: true,
-            title: const Text(
-              'Etisalat-Messages',
-              style: TextStyle(
+            title: Text(
+              LocaleKeys.etisalatMessages.tr(),
+              style: const TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
                 color: Color.fromARGB(255, 8, 63, 110),
@@ -62,20 +65,20 @@ class _MessageState extends State<Message> with SingleTickerProviderStateMixin {
               labelStyle:
                   const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               physics: const ScrollPhysics(),
-              tabs: const [
+              tabs: [
                 Tab(
                   child: Text(
-                    'Daily',
+                    LocaleKeys.daily.tr(),
                   ),
                 ),
                 Tab(
                   child: Text(
-                    'Weekly',
+                    LocaleKeys.weekly.tr(),
                   ),
                 ),
                 Tab(
                   child: Text(
-                    'Monthly',
+                    LocaleKeys.monthly.tr(),
                   ),
                 ),
               ],
@@ -297,7 +300,7 @@ class PackageCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10),
       child: Container(
-          height: 250,
+          height: 283,
           width: double.infinity,
           decoration: BoxDecoration(
             color: Colors.white,
@@ -347,9 +350,9 @@ class PackageCard extends StatelessWidget {
                   size: 30,
                   color: Color.fromARGB(255, 8, 63, 110),
                 ),
-                const Text(
-                  "Price : ",
-                  style: TextStyle(
+                Text(
+                  "${LocaleKeys.price.tr()} : ",
+                  style: const TextStyle(
                       fontSize: 20, color: Color.fromARGB(255, 8, 63, 110)),
                 ),
                 Text(
@@ -364,9 +367,9 @@ class PackageCard extends StatelessWidget {
                   size: 30,
                   color: Color.fromARGB(255, 8, 63, 110),
                 ),
-                const Text(
-                  "Duration : ",
-                  style: TextStyle(
+                Text(
+                  "${LocaleKeys.duration.tr()} : ",
+                  style: const TextStyle(
                       fontSize: 20, color: Color.fromARGB(255, 8, 63, 110)),
                 ),
                 Text(
@@ -381,9 +384,9 @@ class PackageCard extends StatelessWidget {
                   size: 30,
                   color: Color.fromARGB(255, 8, 63, 110),
                 ),
-                const Text(
-                  "Activation Code : ",
-                  style: TextStyle(
+                Text(
+                  "${LocaleKeys.activationCode.tr()} : ",
+                  style: const TextStyle(
                       fontSize: 20, color: Color.fromARGB(255, 8, 63, 110)),
                 ),
                 Text(
@@ -398,9 +401,9 @@ class PackageCard extends StatelessWidget {
                   size: 30,
                   color: Color.fromARGB(255, 8, 63, 110),
                 ),
-                const Text(
-                  "Deactivation Code : ",
-                  style: TextStyle(
+                Text(
+                  "${LocaleKeys.deactivationCode.tr()} : ",
+                  style: const TextStyle(
                       fontSize: 20, color: Color.fromARGB(255, 8, 63, 110)),
                 ),
                 Text(
@@ -417,9 +420,9 @@ class PackageCard extends StatelessWidget {
                     MaterialButton(
                       onPressed: active,
                       color: CupertinoColors.activeGreen,
-                      child: const Text(
-                        "Active",
-                        style: TextStyle(
+                      child: Text(
+                        LocaleKeys.active.tr(),
+                        style: const TextStyle(
                             color: Colors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.bold),
@@ -431,9 +434,9 @@ class PackageCard extends StatelessWidget {
                     MaterialButton(
                       onPressed: deactive,
                       color: Colors.red,
-                      child: const Text(
-                        "Deactive",
-                        style: TextStyle(
+                      child: Text(
+                        LocaleKeys.deactive.tr(),
+                        style: const TextStyle(
                             color: Colors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.bold),
@@ -441,7 +444,7 @@ class PackageCard extends StatelessWidget {
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           )),
     );

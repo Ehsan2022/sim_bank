@@ -1,10 +1,16 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sim_bank/Screens/about.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../translations/locale_keys.dart';
+
 class Settings extends StatefulWidget {
+  const Settings({super.key});
+
   @override
   State<Settings> createState() => _SettingsState();
 }
@@ -13,11 +19,11 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 8, 63, 110),
+      backgroundColor: const Color.fromARGB(255, 8, 63, 110),
       body: Padding(
         padding: const EdgeInsets.only(top: 25),
         child: Container(
-          height: 750,
+          height: 1300,
           decoration: BoxDecoration(
             color: Colors.grey.shade300,
             borderRadius: BorderRadius.circular(20),
@@ -31,12 +37,12 @@ class _SettingsState extends State<Settings> {
           ),
           child: Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 28.0, bottom: 8),
+              Padding(
+                padding: const EdgeInsets.only(top: 28.0, bottom: 28),
                 child: Center(
                   child: Text(
-                    'Settings',
-                    style: TextStyle(
+                    LocaleKeys.settings.tr(),
+                    style: const TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 8, 63, 110),
@@ -75,165 +81,172 @@ class _SettingsState extends State<Settings> {
                   endIndent: 150,
                 ),
               ),
-              Column(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {});
-                    },
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 25.0, right: 15),
-                          child: CircleAvatar(
-                            backgroundColor:
-                                const Color.fromARGB(255, 8, 63, 110),
-                            child: Icon(
-                              Icons.sunny,
-                              size: 30,
-                              color: Colors.grey.shade300,
+              Expanded(
+                child: ListView(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {});
+                      },
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 25.0, right: 15),
+                            child: CircleAvatar(
+                              backgroundColor:
+                                  const Color.fromARGB(255, 8, 63, 110),
+                              child: Icon(
+                                Icons.sunny,
+                                size: 30,
+                                color: Colors.grey.shade300,
+                              ),
                             ),
                           ),
-                        ),
-                        const Text(
-                          "Light mode",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 8, 63, 110),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const divider(),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LanguagePage(),
-                          ));
-                    },
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 25.0, right: 15),
-                          child: CircleAvatar(
-                            backgroundColor:
-                                const Color.fromARGB(255, 8, 63, 110),
-                            child: Icon(
-                              Icons.language,
-                              size: 30,
-                              color: Colors.grey.shade300,
-                            ),
-                          ),
-                        ),
-                        const Text(
-                          "Language",
-                          style: TextStyle(
+                          Text(
+                            LocaleKeys.lightMode.tr(),
+                            style: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 8, 63, 110)),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const divider(),
-                  GestureDetector(
-                    onTap: () {
-                      Share.share("text");
-                    },
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 25.0, right: 15),
-                          child: CircleAvatar(
-                            backgroundColor:
-                                const Color.fromARGB(255, 8, 63, 110),
-                            child: Icon(
-                              Icons.share,
-                              size: 30,
-                              color: Colors.grey.shade300,
+                              color: Color.fromARGB(255, 8, 63, 110),
                             ),
                           ),
-                        ),
-                        const Text(
-                          "Share",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 8, 63, 110)),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  const divider(),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const About(),
-                          ));
-                    },
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 25.0, right: 15),
-                          child: CircleAvatar(
-                            backgroundColor:
-                                const Color.fromARGB(255, 8, 63, 110),
-                            child: Icon(
-                              Icons.phone_iphone,
-                              size: 30,
-                              color: Colors.grey.shade300,
+                    const divider(),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LanguagePage(),
+                            ));
+                      },
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 25.0, right: 15),
+                            child: CircleAvatar(
+                              backgroundColor:
+                                  const Color.fromARGB(255, 8, 63, 110),
+                              child: Icon(
+                                Icons.language,
+                                size: 30,
+                                color: Colors.grey.shade300,
+                              ),
                             ),
                           ),
-                        ),
-                        const Text(
-                          "About",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 8, 63, 110)),
-                        ),
-                      ],
+                          Text(
+                            LocaleKeys.language.tr(),
+                            style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 8, 63, 110)),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  const divider(),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        SystemNavigator.pop();
-                      });
-                    },
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 25.0, right: 15),
-                          child: CircleAvatar(
-                            backgroundColor:
-                                const Color.fromARGB(255, 8, 63, 110),
-                            child: Icon(
-                              Icons.exit_to_app,
-                              size: 30,
-                              color: Colors.grey.shade300,
+                    const divider(),
+                    GestureDetector(
+                      onTap: () {
+                        Share.share('');
+                      },
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 25.0, right: 15),
+                            child: CircleAvatar(
+                              backgroundColor:
+                                  const Color.fromARGB(255, 8, 63, 110),
+                              child: Icon(
+                                Icons.share,
+                                size: 30,
+                                color: Colors.grey.shade300,
+                              ),
                             ),
                           ),
-                        ),
-                        const Text(
-                          "Exit",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 8, 63, 110)),
-                        ),
-                      ],
+                          Text(
+                            LocaleKeys.share.tr(),
+                            style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 8, 63, 110)),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  const divider(),
-                ],
+                    const divider(),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const About(),
+                            ));
+                      },
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 25.0, right: 15),
+                            child: CircleAvatar(
+                              backgroundColor:
+                                  const Color.fromARGB(255, 8, 63, 110),
+                              child: Icon(
+                                Icons.phone_iphone,
+                                size: 30,
+                                color: Colors.grey.shade300,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            LocaleKeys.about.tr(),
+                            style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 8, 63, 110)),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const divider(),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          SystemNavigator.pop();
+                        });
+                      },
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 25.0, right: 15),
+                            child: CircleAvatar(
+                              backgroundColor:
+                                  const Color.fromARGB(255, 8, 63, 110),
+                              child: Icon(
+                                Icons.exit_to_app,
+                                size: 30,
+                                color: Colors.grey.shade300,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            LocaleKeys.exit.tr(),
+                            style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 8, 63, 110)),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const divider(),
+                  ],
+                ),
               ),
             ],
           ),
@@ -270,6 +283,11 @@ class LanguagePage extends StatefulWidget {
 }
 
 class _LanguagePageState extends State<LanguagePage> {
+  Future<void> _saveLocale(Locale locale) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('locale', locale.toLanguageTag());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -304,14 +322,14 @@ class _LanguagePageState extends State<LanguagePage> {
               )
             ],
           ),
-          child: const Column(
+          child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 10.0, bottom: 38),
+                padding: const EdgeInsets.only(top: 10.0, bottom: 38),
                 child: Center(
                   child: Text(
-                    'Language',
-                    style: TextStyle(
+                    LocaleKeys.language.tr(),
+                    style: const TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 8, 63, 110),
@@ -320,13 +338,19 @@ class _LanguagePageState extends State<LanguagePage> {
                 ),
               ),
               ListTile(
-                title: Text('English'),
+                onTap: () {
+                  context.setLocale(const Locale('en'));
+                  _saveLocale(context.locale);
+                },
+                title: const Text('English'),
               ),
               ListTile(
-                title: Text('فارسی'),
-              ),
-              ListTile(
-                title: Text('پشتو'),
+                onTap: () {
+                  setState(() {});
+                  context.setLocale(const Locale('fa'));
+                  _saveLocale(context.locale);
+                },
+                title: const Text('فارسی'),
               ),
             ],
           ),

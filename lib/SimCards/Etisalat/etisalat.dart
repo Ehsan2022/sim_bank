@@ -1,9 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sim_bank/SimCards/Etisalat/call.dart';
 import 'package:sim_bank/SimCards/Etisalat/internet.dart';
 import 'package:sim_bank/SimCards/Etisalat/message.dart';
 import 'package:sim_bank/SimCards/Etisalat/service.dart';
+
+import '../../translations/locale_keys.dart';
 
 class Etisalat extends StatefulWidget {
   const Etisalat({Key? key}) : super(key: key);
@@ -49,12 +52,12 @@ class _EtisalatState extends State<Etisalat> {
           ),
           child: Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 28.0, bottom: 28),
+              Padding(
+                padding: const EdgeInsets.only(top: 28.0, bottom: 28),
                 child: Center(
                   child: Text(
-                    'Etisalat',
-                    style: TextStyle(
+                    LocaleKeys.etisalat.tr(),
+                    style: const TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 8, 63, 110),
@@ -63,7 +66,7 @@ class _EtisalatState extends State<Etisalat> {
                 ),
               ),
               Packages(
-                  text: 'Internet',
+                  text: LocaleKeys.internet.tr(),
                   onPressed: () {
                     Navigator.push(
                         context,
@@ -73,7 +76,7 @@ class _EtisalatState extends State<Etisalat> {
                   icon: Icons.wifi,
                   enterIcon: CupertinoIcons.right_chevron),
               Packages(
-                  text: 'Call',
+                  text: LocaleKeys.call.tr(),
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const Call()));
@@ -81,7 +84,7 @@ class _EtisalatState extends State<Etisalat> {
                   icon: Icons.wifi_calling_3_outlined,
                   enterIcon: CupertinoIcons.right_chevron),
               Packages(
-                  text: 'Message',
+                  text: LocaleKeys.message.tr(),
                   onPressed: () {
                     Navigator.push(
                         context,
@@ -91,7 +94,7 @@ class _EtisalatState extends State<Etisalat> {
                   icon: Icons.email_outlined,
                   enterIcon: CupertinoIcons.right_chevron),
               Packages(
-                  text: 'Services',
+                  text: LocaleKeys.services.tr(),
                   onPressed: () {
                     Navigator.push(
                         context,

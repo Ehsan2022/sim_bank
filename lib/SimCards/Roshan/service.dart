@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
+
+import '../../translations/locale_keys.dart';
 
 class Service extends StatefulWidget {
   const Service({Key? key}) : super(key: key);
@@ -44,9 +46,9 @@ class _ServiceState extends State<Service> with SingleTickerProviderStateMixin {
             ),
             backgroundColor: Colors.grey.shade300,
             centerTitle: true,
-            title: const Text(
-              'Roshan-Services',
-              style: TextStyle(
+            title: Text(
+              LocaleKeys.roshanServices.tr(),
+              style: const TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
                 color: Color.fromARGB(255, 8, 63, 110),
@@ -61,21 +63,21 @@ class _ServiceState extends State<Service> with SingleTickerProviderStateMixin {
                   child: ListView(
                     children: [
                       PackageCard(
-                        bundle: 'Credit Balance',
+                        bundle: LocaleKeys.creditBalance.tr(),
                         active: () {
                           launch('tel: *444##');
                         },
                         activation: '*444#',
                       ),
                       PackageCard(
-                        bundle: 'Internet Balance',
+                        bundle: LocaleKeys.internetBalance.tr(),
                         active: () {
                           launch('tel:*444#');
                         },
                         activation: '*444#',
                       ),
                       PackageCard(
-                        bundle: 'Customer Care',
+                        bundle: LocaleKeys.customerCare.tr(),
                         active: () {
                           launch('tel:333');
                         },
@@ -168,9 +170,9 @@ class PackageCard extends StatelessWidget {
                     MaterialButton(
                       onPressed: active,
                       color: CupertinoColors.activeGreen,
-                      child: const Text(
-                        "Send",
-                        style: TextStyle(
+                      child: Text(
+                        LocaleKeys.send.tr(),
+                        style: const TextStyle(
                             color: Colors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.bold),

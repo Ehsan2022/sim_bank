@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +7,7 @@ import '../SimCards/Etisalat/etisalat.dart';
 import '../SimCards/MTN/mtn.dart';
 import '../SimCards/Roshan/roshan.dart';
 import '../SimCards/Salam/salam.dart';
+import '../translations/locale_keys.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -22,7 +24,7 @@ class _HomeState extends State<Home> {
       body: Padding(
         padding: const EdgeInsets.only(top: 25),
         child: Container(
-          height: 800,
+          height: 1300,
           width: double.infinity,
           decoration: BoxDecoration(
             color: Colors.grey.shade300,
@@ -37,17 +39,48 @@ class _HomeState extends State<Home> {
           ),
           child: Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 28.0, bottom: 28),
+              Padding(
+                padding: const EdgeInsets.only(top: 28.0, bottom: 28),
                 child: Center(
                   child: Text(
-                    'Sim Cards',
-                    style: TextStyle(
+                    LocaleKeys.simCards.tr(),
+                    style: const TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 8, 63, 110),
                     ),
                   ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 12.0),
+                child: Center(
+                  child: CircleAvatar(
+                    radius: 35,
+                    backgroundColor: Color.fromARGB(255, 8, 63, 110),
+                    child: CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Colors.white,
+                      child: CircleAvatar(
+                        radius: 25,
+                        backgroundColor: Color.fromARGB(255, 8, 63, 110),
+                        child: Icon(
+                          Icons.sim_card_outlined,
+                          color: Colors.white,
+                          size: 40,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 18.0),
+                child: Divider(
+                  color: Colors.grey,
+                  thickness: 2,
+                  indent: 150,
+                  endIndent: 150,
                 ),
               ),
               Expanded(
@@ -60,8 +93,8 @@ class _HomeState extends State<Home> {
                             MaterialPageRoute(
                                 builder: (context) => const Roshan()));
                       },
-                      image: 'images/Roshan.jpeg',
-                      text: 'Roshan',
+                      image: 'assets/Roshan.jpeg',
+                      text: LocaleKeys.roshan.tr(),
                     ),
                     SimContainer(
                       onPressed: () {
@@ -70,8 +103,8 @@ class _HomeState extends State<Home> {
                             MaterialPageRoute(
                                 builder: (context) => const Etisalat()));
                       },
-                      image: 'images/ets.png',
-                      text: 'Etisalat',
+                      image: 'assets/ets.png',
+                      text: LocaleKeys.etisalat.tr(),
                     ),
                     SimContainer(
                       onPressed: () {
@@ -80,8 +113,8 @@ class _HomeState extends State<Home> {
                             MaterialPageRoute(
                                 builder: (context) => const MTN()));
                       },
-                      image: 'images/mtn.png',
-                      text: 'MTN',
+                      image: 'assets/mtn.png',
+                      text: LocaleKeys.mtn.tr(),
                     ),
                     SimContainer(
                       onPressed: () {
@@ -90,8 +123,8 @@ class _HomeState extends State<Home> {
                             MaterialPageRoute(
                                 builder: (context) => const Awcc()));
                       },
-                      image: 'images/afgBisim.png',
-                      text: 'AWCC',
+                      image: 'assets/afgBisim.png',
+                      text: LocaleKeys.awcc.tr(),
                     ),
                     SimContainer(
                       onPressed: () {
@@ -100,8 +133,8 @@ class _HomeState extends State<Home> {
                             MaterialPageRoute(
                                 builder: (context) => const Salam()));
                       },
-                      image: 'images/salam.png',
-                      text: 'Salam',
+                      image: 'assets/salam.png',
+                      text: LocaleKeys.salam.tr(),
                     ),
                   ],
                 ),

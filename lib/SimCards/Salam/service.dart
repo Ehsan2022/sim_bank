@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 
 class Service extends StatefulWidget {
   const Service({Key? key}) : super(key: key);

@@ -1,0 +1,128 @@
+// DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
+
+// ignore_for_file: prefer_single_quotes
+
+import 'dart:ui';
+
+import 'package:easy_localization/easy_localization.dart' show AssetLoader;
+
+class CodegenLoader extends AssetLoader{
+  const CodegenLoader();
+
+  @override
+  Future<Map<String, dynamic>?> load(String path, Locale locale) {
+    return Future.value(mapLocales[locale.toString()]);
+  }
+
+  static const Map<String,dynamic> en = {
+  "home": "Home",
+  "links": "Links",
+  "lightMode": "Light Mode",
+  "darkMode": "Dark Mode",
+  "share": "Share",
+  "exit": "Exit",
+  "simCards": "Sim Cards",
+  "roshan": "Roshan",
+  "etisalat": "Etisalat",
+  "mtn": "MTN",
+  "about": "About",
+  "settings": "Settings",
+  "language": "Language",
+  "awcc": "AWCC",
+  "salam": "Salam",
+  "emergencyNumbers": "Emergency Numbers",
+  "popularWebs": "Popular Webs",
+  "historicalPlaces": "Historical Places",
+  "comingSoon": "Coming Soon",
+  "ambulance": "Ambulance",
+  "fireStation": "Fire Station",
+  "police": "Police",
+  "phone": "Phone",
+  "sport": "Sport",
+  "encyclopedia": "Encyclopedia",
+  "cinema": "Cinema",
+  "education": "Education",
+  "internet": "Internet",
+  "call": "Call",
+  "message": "Message",
+  "services": "Services",
+  "daily": "Daily",
+  "weekly": "Weekly",
+  "monthly": "Monthly",
+  "price": "Price",
+  "duration": "Duration",
+  "activationCode": "Activation Code",
+  "deactivationCode": "Deactivation Code",
+  "active": "Active",
+  "deactive": "Deactive",
+  "roshanInternet": "Roshan-Internet",
+  "roshanCalls": "Roshan-Calls",
+  "roshanMessages": "Roshan-Messages",
+  "roshanServices": "Roshan-Services",
+  "creditBalance": "Credit Balance",
+  "internetBalance": "Internet Balance",
+  "customerCare": "Customer Care",
+  "etisalatInternet": "Etisalat-Internet",
+  "etisalatCalls": "Etisalat-Calls",
+  "etisalatMessages": "Etisalat-Messages",
+  "etisalatServices": "Etisalat-Services",
+  "tap": "Tap",
+  "send": "Send"
+};
+static const Map<String,dynamic> fa = {
+  "home": "خانه",
+  "links": "لینک ها",
+  "lightMode": "حالت روز",
+  "darkMode": "حالت شب",
+  "share": "اشتراک گذاری",
+  "exit": "خروج",
+  "simCards": "سیمکارت ها",
+  "roshan": "روشن",
+  "etisalat": "اتصالات",
+  "mtn": "ام تی ان",
+  "about": "درباره",
+  "settings": "تنظیمات",
+  "language": "زبان",
+  "awcc": "افغان بیسیم",
+  "salam": "سلام",
+  "emergencyNumbers": "شماره های اضطراری",
+  "popularWebs": "وبسایت های مشهور",
+  "historicalPlaces": "مکان های تاریخی",
+  "comingSoon": "به زودی",
+  "ambulance": "آمبولانس",
+  "fireStation": "اطفاییه",
+  "police": "پلیس",
+  "phone": "تلفن",
+  "sport": "ورزشی",
+  "encyclopedia": "دایره المعارف",
+  "cinema": "سینما",
+  "education": "آموزشی",
+  "internet": "اینترنت",
+  "call": "تماس",
+  "message": "پیام",
+  "services": "خذمات",
+  "daily": "روزانه",
+  "weekly": "هفته وار",
+  "monthly": "ماهانه",
+  "price": "قیمت",
+  "duration": "مدت",
+  "activationCode": "کد فعالسازی",
+  "deactivationCode": "کد غیر فعالسازی",
+  "active": "فعال",
+  "deactive": "غیر فعال",
+  "roshanInternet": "اینترنت روشن",
+  "roshanCalls": "تماس های روشن",
+  "roshanMessages": "پیام های روشن",
+  "roshanServices": "خدمات روشن",
+  "creditBalance": "بلانس کریدت",
+  "internetBalance": "بلانس اینترنت",
+  "customerCare": "خدمات مشتری",
+  "etisalatInternet": "اینترنت اتصالات",
+  "etisalatCalls": "تماس های اتصالات",
+  "etisalatMessages": "پیام های اتصالات",
+  "etisalatServices": "خدمات اتصالات",
+  "tap": "ضربه بزنید",
+  "send": "ارسال"
+};
+static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "fa": fa};
+}

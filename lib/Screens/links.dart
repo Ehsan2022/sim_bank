@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-
 import 'package:url_launcher/url_launcher.dart';
+
+import '../translations/locale_keys.dart';
 
 class Links extends StatefulWidget {
   const Links({Key? key}) : super(key: key);
@@ -21,9 +23,9 @@ class _LinksState extends State<Links> {
   Future getENumbers() async {
     try {
       await eNumbersCollection.get().then((value) {
-        value.docs.forEach((element) {
+        for (var element in value.docs) {
           eNumberItems.add(element.data());
-        });
+        }
       });
       return eNumberItems;
     } catch (e) {
@@ -50,9 +52,9 @@ class _LinksState extends State<Links> {
   Future getPwebs() async {
     try {
       await pWesCollection.get().then((value) {
-        value.docs.forEach((element) {
+        for (var element in value.docs) {
           pWebItems.add(element.data());
-        });
+        }
       });
       return pWebItems;
     } catch (e) {
@@ -89,7 +91,7 @@ class _LinksState extends State<Links> {
       body: Padding(
         padding: const EdgeInsets.only(top: 25),
         child: Container(
-          height: 800,
+          height: 1300,
           width: double.infinity,
           decoration: BoxDecoration(
             color: Colors.grey.shade300,
@@ -104,17 +106,48 @@ class _LinksState extends State<Links> {
           ),
           child: Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 28.0, bottom: 28),
+              Padding(
+                padding: const EdgeInsets.only(top: 28.0, bottom: 28),
                 child: Center(
                   child: Text(
-                    'Links',
-                    style: TextStyle(
+                    LocaleKeys.links.tr(),
+                    style: const TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 8, 63, 110),
                     ),
                   ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 12.0),
+                child: Center(
+                  child: CircleAvatar(
+                    radius: 35,
+                    backgroundColor: Color.fromARGB(255, 8, 63, 110),
+                    child: CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Colors.white,
+                      child: CircleAvatar(
+                        radius: 25,
+                        backgroundColor: Color.fromARGB(255, 8, 63, 110),
+                        child: Icon(
+                          Icons.link,
+                          color: Colors.white,
+                          size: 40,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 18.0),
+                child: Divider(
+                  color: Colors.grey,
+                  thickness: 2,
+                  indent: 150,
+                  endIndent: 150,
                 ),
               ),
               Expanded(
@@ -136,7 +169,7 @@ class _LinksState extends State<Links> {
                                   const Color.fromARGB(255, 8, 63, 110),
                             ),
                             context: context,
-                            title: "Emergency Numbers",
+                            title: LocaleKeys.emergencyNumbers.tr(),
                             content: Padding(
                               padding: const EdgeInsets.only(top: 38.0),
                               child: Container(
@@ -159,7 +192,7 @@ class _LinksState extends State<Links> {
                                     return ListTile(
                                       title: Text(
                                         eNumbers[index]["name"] ?? "Not Given",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontSize: 24,
                                           fontWeight: FontWeight.bold,
                                           color:
@@ -167,8 +200,8 @@ class _LinksState extends State<Links> {
                                         ),
                                       ),
                                       subtitle: Text(
-                                        "Phone: ${eNumbers[index]["phone"] ?? "Not Given"}",
-                                        style: TextStyle(
+                                        "${LocaleKeys.phone.tr()}: ${eNumbers[index]["phone"] ?? "Not Given"}",
+                                        style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color:
                                               Color.fromARGB(255, 8, 63, 110),
@@ -188,7 +221,7 @@ class _LinksState extends State<Links> {
                                   },
                                   separatorBuilder:
                                       (BuildContext context, int index) {
-                                    return Divider(
+                                    return const Divider(
                                       thickness: 1,
                                       color: Colors.grey,
                                     );
@@ -212,9 +245,9 @@ class _LinksState extends State<Links> {
                               )
                             ],
                           ),
-                          child: const Row(
+                          child: Row(
                             children: [
-                              Expanded(
+                              const Expanded(
                                 flex: 1,
                                 child: Icon(
                                   Icons.contact_phone_outlined,
@@ -226,15 +259,15 @@ class _LinksState extends State<Links> {
                                 flex: 2,
                                 child: Center(
                                   child: Text(
-                                    "Emergency Numbers",
-                                    style: TextStyle(
+                                    LocaleKeys.emergencyNumbers.tr(),
+                                    style: const TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
                                         color: Color.fromARGB(255, 8, 63, 110)),
                                   ),
                                 ),
                               ),
-                              Expanded(
+                              const Expanded(
                                   flex: 1,
                                   child: Icon(
                                     CupertinoIcons.right_chevron,
@@ -261,7 +294,7 @@ class _LinksState extends State<Links> {
                                   const Color.fromARGB(255, 8, 63, 110),
                             ),
                             context: context,
-                            title: "Popular Websites",
+                            title: LocaleKeys.popularWebs.tr(),
                             content: Padding(
                               padding: const EdgeInsets.only(top: 38.0),
                               child: Container(
@@ -285,7 +318,7 @@ class _LinksState extends State<Links> {
                                     return ListTile(
                                       title: Text(
                                         pWebItems[index]["name"],
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontSize: 24,
                                           fontWeight: FontWeight.bold,
                                           color:
@@ -294,7 +327,7 @@ class _LinksState extends State<Links> {
                                       ),
                                       subtitle: Text(
                                         pWebItems[index]["category"],
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color:
                                               Color.fromARGB(255, 8, 63, 110),
@@ -313,7 +346,7 @@ class _LinksState extends State<Links> {
                                   },
                                   separatorBuilder:
                                       (BuildContext context, int index) {
-                                    return Divider(
+                                    return const Divider(
                                       thickness: 1,
                                       color: Colors.grey,
                                     );
@@ -337,9 +370,9 @@ class _LinksState extends State<Links> {
                               )
                             ],
                           ),
-                          child: const Row(
+                          child: Row(
                             children: [
-                              Expanded(
+                              const Expanded(
                                 flex: 1,
                                 child: Icon(
                                   Icons.web,
@@ -351,15 +384,15 @@ class _LinksState extends State<Links> {
                                 flex: 2,
                                 child: Center(
                                   child: Text(
-                                    "Popular Webs",
-                                    style: TextStyle(
+                                    LocaleKeys.popularWebs.tr(),
+                                    style: const TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
                                         color: Color.fromARGB(255, 8, 63, 110)),
                                   ),
                                 ),
                               ),
-                              Expanded(
+                              const Expanded(
                                   flex: 1,
                                   child: Icon(
                                     CupertinoIcons.right_chevron,
@@ -386,9 +419,9 @@ class _LinksState extends State<Links> {
                                     const Color.fromARGB(255, 8, 63, 110),
                               ),
                               context: context,
-                              title: "Historical Places",
-                              desc: "coming soon",
-                              content: SpinKitThreeBounce(
+                              title: LocaleKeys.historicalPlaces.tr(),
+                              desc: LocaleKeys.comingSoon.tr(),
+                              content: const SpinKitThreeBounce(
                                 color: Colors.green,
                               )).show();
                         },
@@ -406,9 +439,9 @@ class _LinksState extends State<Links> {
                               )
                             ],
                           ),
-                          child: const Row(
+                          child: Row(
                             children: [
-                              Expanded(
+                              const Expanded(
                                   flex: 1,
                                   child: Icon(
                                     Icons.castle_outlined,
@@ -419,15 +452,15 @@ class _LinksState extends State<Links> {
                                 flex: 2,
                                 child: Center(
                                   child: Text(
-                                    "Historical Places",
-                                    style: TextStyle(
+                                    LocaleKeys.historicalPlaces.tr(),
+                                    style: const TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
                                         color: Color.fromARGB(255, 8, 63, 110)),
                                   ),
                                 ),
                               ),
-                              Expanded(
+                              const Expanded(
                                   flex: 1,
                                   child: Icon(
                                     CupertinoIcons.right_chevron,

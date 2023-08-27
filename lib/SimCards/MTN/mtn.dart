@@ -14,7 +14,6 @@ class _MTNState extends State<MTN> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 8, 63, 110),
       floatingActionButton: Padding(
-
         padding: const EdgeInsets.only(top: 30.0),
         child: IconButton(
           onPressed: () {
@@ -29,13 +28,13 @@ class _MTNState extends State<MTN> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
       body: Padding(
-        padding: const EdgeInsets.only(top: 25,bottom: 25),
+        padding: const EdgeInsets.only(top: 25, bottom: 25),
         child: Container(
           height: 800,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: Colors.grey.shade300,
-              borderRadius: BorderRadius.circular(20),
+            color: Colors.grey.shade300,
+            borderRadius: BorderRadius.circular(20),
             boxShadow: const [
               BoxShadow(
                 color: Colors.black38,
@@ -47,7 +46,7 @@ class _MTNState extends State<MTN> {
           child: Column(
             children: [
               const Padding(
-                padding: EdgeInsets.only(top: 28.0,bottom: 28),
+                padding: EdgeInsets.only(top: 28.0, bottom: 28),
                 child: Center(
                   child: Text(
                     'MTN',
@@ -82,14 +81,14 @@ class _MTNState extends State<MTN> {
   }
 }
 
-
 class Packages extends StatelessWidget {
   const Packages(
       {super.key,
-        required this.text,
-        required this.onPressed,
-        required this.icon,
-        required this.enterIcon});
+      required this.text,
+      required this.onPressed,
+      required this.icon,
+      required this.enterIcon});
+
   final IconData icon;
   final IconData enterIcon;
   final String text;
@@ -105,7 +104,8 @@ class Packages extends StatelessWidget {
           height: 70,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(10),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
             boxShadow: const [
               BoxShadow(
                 color: Colors.grey,
@@ -118,7 +118,11 @@ class Packages extends StatelessWidget {
             children: [
               Expanded(
                 flex: 1,
-                child: Icon(icon,size: 30,color: const Color.fromARGB(255, 8, 63, 110),),
+                child: Icon(
+                  icon,
+                  size: 30,
+                  color: const Color.fromARGB(255, 8, 63, 110),
+                ),
               ),
               Expanded(
                 flex: 2,
@@ -134,7 +138,10 @@ class Packages extends StatelessWidget {
               ),
               Expanded(
                 flex: 1,
-                child: Icon(enterIcon,color: const Color.fromARGB(255, 8, 63, 110),),
+                child: Icon(
+                  enterIcon,
+                  color: const Color.fromARGB(255, 8, 63, 110),
+                ),
               ),
             ],
           ),
