@@ -10,8 +10,6 @@ class Service extends StatefulWidget {
 }
 
 class _ServiceState extends State<Service> with SingleTickerProviderStateMixin {
-  late final _tabController = TabController(length: 3, vsync: this);
-
   @override
   Widget build(BuildContext context) {
     return Container(
