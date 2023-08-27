@@ -1,6 +1,7 @@
 # sim_bank
 
-A new Flutter project.
+SimBank is a new Flutter project. By using this app you will be able to access to internet,
+call and messages packages of sim cards in Afghanistan.
 
 ## Getting Started
 
