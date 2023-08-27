@@ -30,7 +30,6 @@ class _LinksState extends State<Links> {
       return eNumberItems;
     } catch (e) {
       print(e.toString());
-      return null;
     }
   }
 
@@ -59,7 +58,6 @@ class _LinksState extends State<Links> {
       return pWebItems;
     } catch (e) {
       print(e.toString());
-      return null;
     }
   }
 

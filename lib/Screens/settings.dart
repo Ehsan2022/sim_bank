@@ -3,8 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sim_bank/Navigation/navigator.dart';
 import 'package:sim_bank/Screens/about.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:sim_bank/main.dart';
 
 import '../translations/locale_keys.dart';
 
@@ -17,7 +19,18 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   @override
+  void initState() {
+    // TODO: implement initState
+    print('object0');
+    setState(() {});
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    setState(() {
+      print('object');
+    });
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 8, 63, 110),
       body: Padding(
@@ -84,36 +97,6 @@ class _SettingsState extends State<Settings> {
               Expanded(
                 child: ListView(
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {});
-                      },
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding:
-                                const EdgeInsets.only(left: 25.0, right: 15),
-                            child: CircleAvatar(
-                              backgroundColor:
-                                  const Color.fromARGB(255, 8, 63, 110),
-                              child: Icon(
-                                Icons.sunny,
-                                size: 30,
-                                color: Colors.grey.shade300,
-                              ),
-                            ),
-                          ),
-                          Text(
-                            LocaleKeys.lightMode.tr(),
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 8, 63, 110),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
                     const divider(),
                     GestureDetector(
                       onTap: () {
@@ -151,7 +134,7 @@ class _SettingsState extends State<Settings> {
                     const divider(),
                     GestureDetector(
                       onTap: () {
-                        Share.share('');
+                        Share.share("Check out my App on play store!");
                       },
                       child: Row(
                         children: [
@@ -289,6 +272,11 @@ class _LanguagePageState extends State<LanguagePage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 8, 63, 110),
@@ -297,6 +285,7 @@ class _LanguagePageState extends State<LanguagePage> {
         child: IconButton(
           onPressed: () {
             Navigator.pop(context);
+            print('object1');
           },
           icon: const Icon(
             CupertinoIcons.back,
@@ -340,14 +329,35 @@ class _LanguagePageState extends State<LanguagePage> {
               ListTile(
                 onTap: () {
                   context.setLocale(const Locale('en'));
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NavigationScreen(screenIndex: 0),
+                      ),
+                      (route) => false);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LanguagePage(),
+                      ));
                   _saveLocale(context.locale);
                 },
                 title: const Text('English'),
               ),
               ListTile(
                 onTap: () {
-                  setState(() {});
                   context.setLocale(const Locale('fa'));
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NavigationScreen(screenIndex: 0),
+                      ),
+                      (route) => false);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LanguagePage(),
+                      ));
                   _saveLocale(context.locale);
                 },
                 title: const Text('فارسی'),

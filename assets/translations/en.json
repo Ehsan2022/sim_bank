@@ -51,5 +51,8 @@
   "etisalatMessages": "Etisalat-Messages",
   "etisalatServices": "Etisalat-Services",
   "tap": "Tap",
+  "ok": "OK",
+  "Doyouwanttodeactive?": "Do you want to deactive?",
+  "Doyouwanttoactive?": "Do you want to active?",
   "send": "Send"
 }

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
@@ -28,14 +30,41 @@ void main() async {
       fallbackLocale: const Locale('en'),
       startLocale: savedLocale,
       assetLoader: const CodegenLoader(),
-      child: const Navigation(),
+      child: const MyApp(),
     ),
   );
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      routes: {
+        NavigationScreen.id: (context) => NavigationScreen(
+              screenIndex: 1,
+            ),
+        SplashScreen.id: (context) => const SplashScreen(),
+      },
+      supportedLocales: context.supportedLocales,
+      localizationsDelegates: context.localizationDelegates,
+      locale: context.locale,
+      debugShowCheckedModeBanner: false,
+      initialRoute: SplashScreen.id,
+    );
+  }
 }
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
+  static const String id = '/splashScreen';
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
@@ -43,72 +72,45 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 7)).then((value) {
-      Navigator.of(context).pushReplacement(
-        CupertinoPageRoute(
-          builder: (context) => const Navigation(),
-        ),
-      );
-    });
+    Future.delayed(
+      const Duration(seconds: 5),
+      () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => NavigationScreen(screenIndex: 1),
+          )),
+    );
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      supportedLocales: context.supportedLocales,
-      localizationsDelegates: context.localizationDelegates,
-      locale: context.locale,
-      home: const Scaffold(
-        backgroundColor: Colors.black,
-        body: SizedBox(
-          width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image(
-                width: 150,
-                image: AssetImage("assets/logo.jpg"),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "SIM",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 30,
-                    ),
-                  ),
-                  Text(
-                    "B",
-                    style: TextStyle(
-                      color: Colors.yellow,
-                      fontSize: 60,
-                    ),
-                  ),
-                  Text(
-                    "ANK",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SpinKitDancingSquare(
-                color: Colors.yellow,
-                size: 100,
-              )
-            ],
-          ),
+    return const Scaffold(
+      backgroundColor: Colors.black,
+      body: SizedBox(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image(
+              width: 150,
+              image: AssetImage("assets/logo.jpg"),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Image(
+              image: AssetImage('assets/sb.png'),
+              width: 250,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            SpinKitDancingSquare(
+              color: Colors.yellow,
+              size: 100,
+            )
+          ],
         ),
       ),
     );

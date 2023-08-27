@@ -51,5 +51,8 @@
   "etisalatMessages": "پیام های اتصالات",
   "etisalatServices": "خدمات اتصالات",
   "tap": "ضربه بزنید",
+  "ok": "تایید",
+  "Doyouwanttodeactive?": "آیا می خواهید غیر فعال کنید؟",
+  "Doyouwanttoactive?": "آیا می خواهید فعال کنید؟",
   "send": "ارسال"
 }

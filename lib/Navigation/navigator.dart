@@ -1,21 +1,23 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sim_bank/translations/locale_keys.dart';
 import '../Screens/home.dart';
 import '../Screens/links.dart';
 import '../Screens/settings.dart';
 
-class Navigation extends StatefulWidget {
-  const Navigation({super.key});
+class NavigationScreen extends StatefulWidget {
+  NavigationScreen({super.key, required this.screenIndex});
+
+  static const String id = '/navigation';
+  late int screenIndex;
 
   @override
-  State<Navigation> createState() => _NavigationState();
+  State<NavigationScreen> createState() => _NavigationScreenState();
 }
 
-class _NavigationState extends State<Navigation> {
-  int currentIndex = 1;
-
+class _NavigationScreenState extends State<NavigationScreen> {
   List<Widget> body = [
     const Settings(),
     const Home(),
@@ -24,14 +26,14 @@ class _NavigationState extends State<Navigation> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      supportedLocales: context.supportedLocales,
-      localizationsDelegates: context.localizationDelegates,
-      locale: context.locale,
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return WillPopScope(
+      onWillPop: () {
+        SystemNavigator.pop();
+        return Future.value(false);
+      },
+      child: Scaffold(
         backgroundColor: const Color.fromARGB(255, 8, 63, 110),
-        body: body[currentIndex],
+        body: body[widget.screenIndex],
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.transparent,
           unselectedItemColor: Colors.grey.shade400,
@@ -40,10 +42,10 @@ class _NavigationState extends State<Navigation> {
           selectedIconTheme: const IconThemeData(size: 40),
           elevation: 0,
           iconSize: 32,
-          currentIndex: currentIndex,
+          currentIndex: widget.screenIndex,
           onTap: (newIndex) {
             setState(() {
-              currentIndex = newIndex;
+              widget.screenIndex = newIndex;
             });
           },
           items: [
